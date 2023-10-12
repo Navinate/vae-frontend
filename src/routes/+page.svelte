@@ -8,7 +8,10 @@
     <!--2nd row-->
     <div />
     <ImagePicker />
-    <div>arrow pointing down</div>
+    <div>
+        <img src="/arrow_down_left.svg" alt="arrow pointing from left to down" />
+        <img src="/arrow_down_right.svg" alt="arrow pointing from right to down" />
+    </div>
     <ImagePicker />
     <div />
     <!--3rd row-->
@@ -26,11 +29,16 @@
         height: 100vh;
         grid-template-columns: 1fr repeat(3, 2.66fr) 1fr;
         grid-template-rows: 1fr 4fr 5fr;
+        place-items: center;
     }
 
     header {
         grid-column: 1 / -1;
         grid-row: 1;
         background-color: #333;
+    }
+
+    img {
+        width: 13vw;
     }
 </style>

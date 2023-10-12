@@ -1,17 +1,22 @@
 <script lang="ts">
-    export let src: string = "https://picsum.photos/60";
+    let images: string[] = ["https://picsum.photos/200","https://picsum.photos/201","https://picsum.photos/202"]
+    export let src: string | undefined = undefined;
     export let pickable: boolean = true;
-    export let selected: number = 0;
+    let selected: number = pickable ? 0 : -1;
 </script>
 <main>
-    <img src={src} alt="An anime face" />
-    {#if pickable}
+    {#if !pickable}
+        {#if src === undefined}
+            <img src="/loading.svg" alt="loading" />
+        {:else}
+            <img src={src} alt="An anime face" />
+        {/if}
+    {:else}
+        <img src={images[selected]} alt="An anime face" />
         <select bind:value={selected} id="images" name="images">
-            <option value="0">Image A</option>
-            <option value="1">Image B</option>
-            <option value="2">Image C</option>
-            <option value="3">Image D</option>
-            <option value="4">Image E</option>
+            <option selected value="1">Image A</option>
+            <option value="2">Image B</option>
+            <option value="3">Image C</option>
         </select>
     {/if}
 </main>
@@ -26,10 +31,14 @@
         place-items: center;
     }
     img {
-        border-radius: 1rem;
-        width: 100%;
-        height: 100%;
+        border-radius: 0.5rem;
+        width: 25vw;
+        height: 25vw;
         image-rendering: pixelated;
-        box-shadow: 1rem 1rem 1rem black;
+    }
+
+    select {
+        margin-top: 1rem;
+        width: 10rem;
     }
 </style>
