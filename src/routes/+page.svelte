@@ -1,23 +1,32 @@
 <script lang="ts">
+	import ImageDisplay from "$lib/ImageDisplay.svelte";
     import ImagePicker from "$lib/ImagePicker.svelte";
+
+    let gan: string[] = [];
+    for(let i = 0; i < 10; i++) {
+        gan.push(`/gan/${i}.png`);
+    }
+    console.log(gan);
 </script>
 
 <main>
     <!--1st row-->
-    <header></header>
+    <header>
+        <h1>Anime Face Morpher</h1>
+    </header>
     <!--2nd row-->
     <div />
-    <ImagePicker />
+    <ImagePicker src={gan[0]} />
     <div>
         <img src="/arrow_down_left.svg" alt="arrow pointing from left to down" />
         <img src="/arrow_down_right.svg" alt="arrow pointing from right to down" />
     </div>
-    <ImagePicker />
+    <ImagePicker src={gan[9]} />
     <div />
     <!--3rd row-->
     <div />
     <div />
-    <ImagePicker pickable={false} />
+    <ImageDisplay images={gan}/>
     <div />
     <div />
 
@@ -30,15 +39,22 @@
         grid-template-columns: 1fr repeat(3, 2.66fr) 1fr;
         grid-template-rows: 1fr 4fr 5fr;
         place-items: center;
+        gap: 1rem;
     }
 
     header {
         grid-column: 1 / -1;
         grid-row: 1;
         background-color: #333;
+        width: 100vw;
+        height: 100%;
+        color: white;
+        display: grid;
+        place-items: center;
+        font-family: sans-serif;
     }
 
     img {
-        width: 13vw;
+        width: 12vw;
     }
 </style>
