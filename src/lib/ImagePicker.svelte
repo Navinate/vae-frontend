@@ -5,11 +5,11 @@
 </script>
 <main>
     <img src={src} alt="An anime face" />
-    <select bind:value={selected} id="images" name="images">
+    <!-- <select bind:value={selected} id="images" name="images">
         <option value="0" selected>Image A</option>
         <option value="1">Image B</option>
         <option value="2">Image C</option>
-    </select>
+    </select> -->
 </main>
 
 
