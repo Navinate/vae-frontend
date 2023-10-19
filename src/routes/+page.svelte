@@ -6,7 +6,6 @@
     for(let i = 0; i < 10; i++) {
         gan.push(`/gan/${i}.png`);
     }
-    console.log(gan);
 </script>
 
 <main>
